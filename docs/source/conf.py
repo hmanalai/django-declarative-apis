@@ -25,7 +25,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+# sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 # -- General configuration ------------------------------------------------
 
@@ -34,7 +34,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 # needs_sphinx = '1.0'
 
 import django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'tests.settings'
+from django.conf import settings
+
+sys.path.insert(0, os.path.abspath('..'))
+settings.configure()
 django.setup()
 
 # Add any Sphinx extension module names here, as strings. They can be
